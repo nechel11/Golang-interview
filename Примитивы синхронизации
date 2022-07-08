@@ -1,0 +1,72 @@
+Примитивы синхронизации : 
+    пакет "sync" - мьютексы.
+    
+    ________________________________
+    Mutex
+    
+    name sync.Mutex - создали мьютекс
+    name.Lock() - лок мьютекс
+    // критически важный код. неважный код писать после анлока
+    name.Unlock() - анлок мьютекса
+    ________________________________
+
+    RWMutex
+
+    name sync.RWMutex - создали RW мьютекс, который блокирует на чтение/запись.
+    ________________________________    
+
+    WaitGroup 
+
+    name sync.WaitGroup - создали вейтгрупп
+    name.Add(delta int) - Add добавляет delta, которая может быть отрицательной, к счетчику WaitGroup. Если счетчик обнуляется, все goroutine, заблокированные Wait, освобождаются. Если счетчик становится отрицательным, Add вызывает panic.
+    name.Done() - Done уменьшает счетчик WaitGroup на один.
+    name.wait() - Wait блокирует исполнение потока до тех пор пока счетчик WaitGroup не обнулится.
+    
+    func main() {
+     var wg sync.WaitGroup
+
+	    for i:=0; i<10;i++{
+		    wg.Add(1)
+		    k := i
+		    go func ()  {
+			    defer wg.Done()
+			    fmt.Printf("%d goroutine is working\n", k)
+			    time.Sleep(300 * time.Millisecond)
+		    }()
+	    }
+	    wg.Wait()
+	    fmt.Println("all done")
+    }
+    
+    Output :    2 goroutine is working
+                0 goroutine is working
+                1 goroutine is working
+                all done
+    ________________________________  
+
+    Atomic - потокобезопасный инкрементор счетчика
+    
+    func main() {
+         var wg sync.WaitGroup
+         var counter uint64
+
+            for i:=0; i<10;i++{
+	            wg.Add(1)
+	            go func ()  {
+		            defer wg.Done()
+		            for j:=0;j< 100; j++{
+			            atomic.AddUint64(&counter, 1)
+		            }
+	            }()
+            }
+            wg.Wait()
+            fmt.Println(counter)
+        }
+
+    Output : 1000
+
+    ________________________________  
+    
+    Sync.Once - позволяет выполнить определенную функцию только один раз
+
+    
