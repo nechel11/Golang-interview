@@ -1,0 +1,1 @@
+./1.go:14:2: cannot assign to a[0] (value of type byte)
