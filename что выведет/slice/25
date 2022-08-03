@@ -1,0 +1,1 @@
+./25.go:8:8: invalid operation: m == map[string]int{} (map can only be compared to nil)

@@ -60,6 +60,6 @@ func main(){
 	mylist.prepend(node3)
 	fmt.Println(mylist)
 	mylist.printlist()
-	mylist.deletewithvalue(200)
+	mylist.deletewithvalue(20)
 	mylist.printlist()
 }

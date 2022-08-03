@@ -1,0 +1,1 @@
+./16.go:8:13: invalid operation: a == nil (mismatched types [2]int and untyped nil)

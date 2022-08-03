@@ -1,0 +1,2 @@
+./4.go:12:8: value declared but not used
+./4.go:16:17: undefined: value

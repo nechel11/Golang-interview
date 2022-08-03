@@ -1,0 +1,1 @@
+./21.go:8:8: invalid operation: a == []int{} (slice can only be compared to nil)
