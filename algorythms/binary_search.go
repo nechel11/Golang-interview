@@ -6,7 +6,7 @@ import (
 
 func main(){
 	a := []int{1,2,3,4,5,6,7,8,9}
-	b := 8
+	b := 4
 	fmt.Println("Searchin int is", b)
 	fmt.Println("Index num is",binary_search(a,b))
 }
@@ -16,7 +16,7 @@ func binary_search(a []int, b int) int{
 	high := len(a) - 1
 
 	
-	for low < high{
+	for low <= high{
 		mid := (high + low) / 2
 		guess := a[mid]
 		if guess == b{
