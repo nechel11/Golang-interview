@@ -1,0 +1,5 @@
+Базовые : 
+	int, float, bool, complex
+Составные :
+	map, slice, array
+Указатели
