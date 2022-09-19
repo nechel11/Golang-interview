@@ -1,0 +1,15 @@
+SELECT *. count()
+FROM 
+WHERE можно добавить IN/ NOT IN. AND/OR
+GROUP BY - группировка по столбцу
+HAVING - фильтрация на уровне сгруппированных данных
+ORDER BY - сортировка по столбцу
+
+select City, count(CustomerID)
+from Customers
+group by City
+HAVING count (CustomerID) >= 5
+
+select *
+from Customers
+order by City
