@@ -1,4 +1,4 @@
-map golang (https://clck.ru/sTThZ)
+map golang (https://www.youtube.com/watch?v=P_SXTUiA-9Y&t=2s)
 
 	"Как реализована map(карта) go?"
 		Сама map в go - это структура, реализующая операции хеширования. 

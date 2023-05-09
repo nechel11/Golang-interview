@@ -10,5 +10,4 @@ func main() {
 			fmt.Printf("%v ", *i)
 		}(&i)
 	}
-
 }
